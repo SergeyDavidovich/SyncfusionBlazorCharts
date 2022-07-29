@@ -1,74 +1,100 @@
 ﻿@page "/charts-features"
 @using Syncfusion.Blazor.Charts
-<h2>Charts</h2>
-<br />
-
+@*<h2>Charts</h2>
+<hr />
+*@
 <div class="grid-container">
     <div>
+        <SfChart>
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@WeatherReport1" XName="X" High="High" Low="Low" Width="2" Type="ChartSeriesType.RangeColumn">
+                </ChartSeries>
+                <ChartSeries DataSource="@WeatherReport2" XName="X" High="High" Low="Low" Width="2" Type="ChartSeriesType.RangeColumn">
+                </ChartSeries>
+            </ChartSeriesCollection>
+        </SfChart>
+    </div>
+    <div>
+        <SfChart Title="Family Expense for Month">
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Interval="1">
+            </ChartPrimaryXAxis>
+
+            <ChartPrimaryYAxis Title="Expense" Interval="100" LabelFormat="${value}">
+            </ChartPrimaryYAxis>
+
+            <ChartArea>
+                <ChartAreaBorder Width="0"></ChartAreaBorder>
+            </ChartArea>
+
+            <ChartSeriesCollection>
+                <ChartSeries XName="X" DataSource="@ExpenseReports"
+                             YName="Y" Type="ChartSeriesType.StackingLine">
+                    <ChartMarker Visible="true">
+                    </ChartMarker>
+                </ChartSeries>
+                <ChartSeries XName="X" DataSource="@ExpenseReports"
+                             YName="Y1" Type="ChartSeriesType.StackingLine">
+                    <ChartMarker Visible="true">
+                    </ChartMarker>
+                </ChartSeries>
+                <ChartSeries XName="X" DataSource="@ExpenseReports"
+                             YName="Y2" Type="ChartSeriesType.StackingLine">
+                    <ChartMarker Visible="true">
+                    </ChartMarker>
+                </ChartSeries>
+                <ChartSeries XName="X" DataSource="@ExpenseReports"
+                             YName="Y3" Type="ChartSeriesType.StackingLine">
+                    <ChartMarker Visible="true">
+                    </ChartMarker>
+                </ChartSeries>
+            </ChartSeriesCollection>
+        </SfChart>
+    </div>
+    <div>
+        <SfChart>
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" />
+
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@MedalDetails" XName="X" YName="Y" Type="ChartSeriesType.StackingArea" />
+                <ChartSeries DataSource="@MedalDetails" XName="X" YName="Y1" Type="ChartSeriesType.StackingArea" />
+                <ChartSeries DataSource="@MedalDetails" XName="X" YName="Y2" Type="ChartSeriesType.StackingArea" />
+            </ChartSeriesCollection>
+        </SfChart>
+    </div>
+    <div>
         <SfChart Theme="Theme.Material">
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
             <ChartSeriesCollection>
-                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="crimson" Opacity="0.7">
+                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="crimson" Opacity="1">
                 </ChartSeries>
             </ChartSeriesCollection>
             <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
             <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
         </SfChart>
     </div>
-    <div>
-        <SfChart Theme="Theme.MaterialDark">
-            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
-            <ChartSeriesCollection>
-                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="yellow" Opacity="0.7">
-                </ChartSeries>
-            </ChartSeriesCollection>
-            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
-            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
-        </SfChart>
-    </div>
-    <div>
-        <SfChart Theme="Theme.MaterialDark">
-            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
-            <ChartSeriesCollection>
-                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="green" Opacity="0.7">
-                </ChartSeries>
-            </ChartSeriesCollection>
-            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
-            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
-        </SfChart>
-    </div>
-    <div>
-        <SfChart Theme="Theme.Material">
-            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
-            <ChartSeriesCollection>
-                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="magenta" Opacity="0.7">
-                </ChartSeries>
-            </ChartSeriesCollection>
-            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
-            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
-        </SfChart>
-    </div>
+
 </div>
 
 <style>
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap:1rem;
+        gap: 1rem;
     }
 
-   /* .ulstyle {
-        margin: 0px;
-        padding-left: 20px;
-        display: inline-block;
-    }
+    /* .ulstyle {
+                        margin: 0px;
+                        padding-left: 20px;
+                        display: inline-block;
+                    }
 
-    .list {
-        float: left;
-        line-height: 20px;
-        margin: 10px;
-        min-width: 200px;
-    }*/
+                    .list {
+                        float: left;
+                        line-height: 20px;
+                        margin: 10px;
+                        min-width: 200px;
+                    }*/
 </style>
 
 @code {
@@ -80,12 +106,84 @@
     }
     public List<SalesInfo> Sales = new List<SalesInfo>
       {
-        new SalesInfo { Month = 1, SalesValue = 35, Size = 2 },
-        new SalesInfo { Month = 2, SalesValue = 28, Size = 1 },
-        new SalesInfo { Month = 3, SalesValue = 34, Size = 3 },
-        new SalesInfo { Month = 4, SalesValue = 32, Size = 2 },
-        new SalesInfo { Month = 5, SalesValue = 40, Size = 5 },
-        new SalesInfo { Month = 6, SalesValue = 32, Size = 2 },
-        new SalesInfo { Month = 7, SalesValue = 35, Size = 2 }
+        new SalesInfo { Month = 1, SalesValue = 25, Size = 5 },
+        new SalesInfo { Month = 2, SalesValue = 18, Size = 4 },
+        new SalesInfo { Month = 3, SalesValue = 24, Size = 6 },
+        new SalesInfo { Month = 4, SalesValue = 22, Size = 5 },
+        new SalesInfo { Month = 5, SalesValue = 30, Size = 8 },
+        new SalesInfo { Month = 6, SalesValue = 22, Size = 5 },
+        new SalesInfo { Month = 7, SalesValue = 25, Size = 5 }
+    };
+
+    public class ChartData
+    {
+        public string X { get; set; }
+        public double Y { get; set; }
+        public double Y1 { get; set; }
+        public double Y2 { get; set; }
+        public double Y3 { get; set; }
+    }
+    public List<ChartData> ExpenseReports = new List<ChartData>
+    {
+        new ChartData { X = "Food" , Y = 90, Y1 = 40 , Y2= 70, Y3= 120},
+        new ChartData { X = "Transport", Y = 80, Y1 = 90, Y2= 110, Y3= 70 },
+        new ChartData { X = "Medical",Y = 50, Y1 = 80, Y2= 120, Y3= 50 },
+        new ChartData { X = "Clothes",Y = 70, Y1 = 30, Y2= 60, Y3= 180 },
+        new ChartData { X = "Personal Care", Y = 30, Y1 = 80, Y2= 80, Y3= 30 },
+        new ChartData { X = "Books", Y = 10, Y1 = 40, Y2= 30, Y3= 270},
+        new ChartData { X = "Fitness",Y = 100, Y1 = 30, Y2= 70, Y3= 40 },
+        new ChartData { X = "Electricity", Y = 55, Y1 = 95, Y2= 55, Y3= 75},
+        new ChartData { X = "Tax", Y = 20, Y1 = 50, Y2= 40, Y3= 65 },
+        new ChartData { X = "Pet Care", Y = 40, Y1 = 20, Y2= 80, Y3= 95 },
+        new ChartData { X = "Education", Y = 45, Y1 = 15, Y2= 45, Y3= 195 },
+        new ChartData { X = "Entertainment", Y = 75, Y1 = 45, Y2= 65, Y3= 115 }
+    };
+
+    public class ChartData1
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Y1 { get; set; }
+        public double Y2 { get; set; }
+    }
+    public List<ChartData1> MedalDetails = new List<ChartData1>
+    {
+        new ChartData1{ X=2000, Y= 0.61, Y1= 0.03, Y2= 0.48},
+        new ChartData1{ X=2001, Y= 0.81, Y1= 0.05, Y2= 0.53 },
+        new ChartData1{ X=2002, Y= 0.91, Y1= 0.06, Y2= 0.57 },
+        new ChartData1{ X=2003, Y= 1, Y1= 0.09, Y2= 0.61 },
+        new ChartData1{ X=2004, Y= 1.19, Y1= 0.14, Y2= 0.63 },
+        new ChartData1{ X=2005, Y= 1.47, Y1= 0.20, Y2= 0.64 },
+        new ChartData1{ X=2006, Y= 1.74, Y1= 0.29, Y2= 0.66 },
+        new ChartData1{ X=2007, Y= 1.98, Y1= 0.46, Y2= 0.76 },
+        new ChartData1{ X=2008, Y= 1.99, Y1= 0.64, Y2= 0.77 },
+        new ChartData1{ X=2009, Y= 1.70, Y1= 0.75, Y2= 0.55 }
+    };
+
+    public class ChartData2
+    {
+        public string X { get; set; }
+        public double Low { get; set; }
+        public double High { get; set; }
+    }
+    public List<ChartData2> WeatherReport1 = new List<ChartData2>
+    {
+        new ChartData2 { X= "Sun", Low= 3.1, High= 10.8 },
+        new ChartData2 { X= "Mon", Low= 5.7, High= 14.4 },
+        new ChartData2 { X= "Tue", Low= 8.4, High= 16.9 },
+        new ChartData2 { X= "Wed", Low= 10.6, High= 19.2 },
+        new ChartData2 { X= "Thu", Low= 8.5, High= 16.1 },
+        new ChartData2 { X= "Fri", Low= 6.0, High= 12.5 },
+        new ChartData2 { X= "Sat", Low= 1.5, High= 6.9 }
+    };
+    public List<ChartData2> WeatherReport2 = new List<ChartData2>
+    {
+        new ChartData2 { X= "Sun", Low= 2.5, High= 9.8 },
+        new ChartData2 { X= "Mon", Low= 4.7, High= 11.4 },
+        new ChartData2 { X= "Tue", Low= 6.4, High= 14.4 },
+        new ChartData2 { X= "Wed", Low= 9.6, High= 17.2 },
+        new ChartData2 { X= "Thu", Low= 7.5, High= 15.1 },
+        new ChartData2 { X= "Fri", Low= 3.0, High= 10.5 },
+        new ChartData2 { X= "Sat", Low= 1.2, High= 7.9 }
     };
 }
