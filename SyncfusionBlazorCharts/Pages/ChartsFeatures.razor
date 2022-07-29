@@ -2,42 +2,62 @@
 @using Syncfusion.Blazor.Charts
 <h2>Charts</h2>
 <br />
-<div id="ControlRegion" style="width:100%">
-    <SfChart Theme="Theme.Material">
-        <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
-        <ChartSeriesCollection>
-            <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="crimson" Opacity="0.7">
-            </ChartSeries>
-        </ChartSeriesCollection>
-        <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
-        <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
-    </SfChart>
+
+<div class="grid-container">
+    <div>
+        <SfChart Theme="Theme.Material">
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="crimson" Opacity="0.7">
+                </ChartSeries>
+            </ChartSeriesCollection>
+            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
+        </SfChart>
+    </div>
+    <div>
+        <SfChart Theme="Theme.MaterialDark">
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="yellow" Opacity="0.7">
+                </ChartSeries>
+            </ChartSeriesCollection>
+            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
+        </SfChart>
+    </div>
+    <div>
+        <SfChart Theme="Theme.MaterialDark">
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="green" Opacity="0.7">
+                </ChartSeries>
+            </ChartSeriesCollection>
+            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
+        </SfChart>
+    </div>
+    <div>
+        <SfChart Theme="Theme.Material">
+            <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
+            <ChartSeriesCollection>
+                <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="magenta" Opacity="0.7">
+                </ChartSeries>
+            </ChartSeriesCollection>
+            <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
+        </SfChart>
+    </div>
 </div>
-<br />
-<div id="ControlRegion" style="width:80%">
-    <SfChart Theme="Theme.MaterialDark">
-        <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">  </ChartPrimaryXAxis>
-        <ChartSeriesCollection>
-            <ChartSeries DataSource="@Sales" XName="Month" YName="SalesValue" Size="Size" Type="ChartSeriesType.Bubble" Fill="yellow" Opacity="0.7">
-            </ChartSeries>
-        </ChartSeriesCollection>
-        <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
-        <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
-    </SfChart>
-</div>
-<br />
-<div>
-    <h3>Selected Features:</h3>
-    <ul class="ulstyle">
-        <li class="list"> Chart Types - Bubble</li>
-        <li class="list"> Zooming</li>
-        <li class="list"> Tooltip</li>
-        <li class="list"> Theme - Material</li>
-    </ul>
-</div>
-<br />
+
 <style>
-    .ulstyle {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:1rem;
+    }
+
+   /* .ulstyle {
         margin: 0px;
         padding-left: 20px;
         display: inline-block;
@@ -48,8 +68,9 @@
         line-height: 20px;
         margin: 10px;
         min-width: 200px;
-    }
+    }*/
 </style>
+
 @code {
     public class SalesInfo
     {
