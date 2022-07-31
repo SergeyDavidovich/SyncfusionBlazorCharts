@@ -1,10 +1,12 @@
-﻿@page "/charts-features"
+﻿@page "/charts"
 @using Syncfusion.Blazor.Charts
-@*<h2>Charts</h2>
+
+<h2>Charts</h2>
 <hr />
-*@
+
+
 <div class="grid-container">
-    <div>
+    <div class="grid-chart1">
         <SfChart>
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
             <ChartSeriesCollection>
@@ -15,7 +17,7 @@
             </ChartSeriesCollection>
         </SfChart>
     </div>
-    <div>
+    <div class="grid-chart2">
         <SfChart Title="Family Expense for Month">
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Interval="1">
             </ChartPrimaryXAxis>
@@ -51,7 +53,7 @@
             </ChartSeriesCollection>
         </SfChart>
     </div>
-    <div>
+    <div class="grid-chart3">
         <SfChart>
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" />
 
@@ -62,8 +64,7 @@
             </ChartSeriesCollection>
         </SfChart>
     </div>
-
-    <div>
+    <div class="grid-chart4">
         <SfChart Theme="Theme.Material">
             <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
             <ChartSeriesCollection>
@@ -74,28 +75,40 @@
             <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
         </SfChart>
     </div>
-
 </div>
 
 <style>
     .grid-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "chart1 chart2"
+            "chart3 chart4";
+
         gap: 1rem;
     }
 
-    /* .ulstyle {
-                            margin: 0px;
-                            padding-left: 20px;
-                            display: inline-block;
-                        }
-
-                        .list {
-                            float: left;
-                            line-height: 20px;
-                            margin: 10px;
-                            min-width: 200px;
-                        }*/
+    .grid-chart1 {
+        grid-area: chart1;
+    }
+    .grid-chart2 {
+        grid-area: chart2;
+    }
+    .grid-chart3 {
+        grid-area: chart3;
+    }
+    .grid-chart4 {
+        grid-area: chart4;
+    }
+    @@media(max-width:720px){
+        .grid-container {
+         grid-template-areas:
+            "chart1"
+            "chart2"
+            "chart3" 
+            "chart4";
+        }
+    }
 </style>
 
 @code {
