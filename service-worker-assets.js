@@ -133,7 +133,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-VT9PhRlf6kFZpQdISI0WE8qc8qfen+48F\/sMSiTIEmU=",
+      "hash": "sha256-n+cTJloSWAIMnF8\/BgvPRPJsD0ic1PHY6006RXz0ps0=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -261,7 +261,7 @@
       "url": "_framework\/Syncfusion.PdfExport.Net.dll"
     },
     {
-      "hash": "sha256-rBlcKB8wmIIVlyw20ywWmZaPwCYruk4hWEKCi7VLT7c=",
+      "hash": "sha256-FCZmce9McKsdUfHLF1lI9MvkCqVWrQd1GBYjOkGD5CE=",
       "url": "_framework\/SyncfusionBlazorCharts.dll"
     },
     {
@@ -669,5 +669,5 @@
       "url": "_content\/Syncfusion.Blazor.Themes\/tailwind.css"
     }
   ],
-  "version": "E2kWsEaM"
+  "version": "rw6BPjNa"
 };
